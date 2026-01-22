@@ -6,6 +6,8 @@ import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 import { metaImagesPlugin } from "./vite-plugin-meta-images";
 
 export default defineConfig({
+  // Add this line to handle GitHub Pages subfolder deployment
+  base: "/TorryVault/", 
   plugins: [
     react(),
     runtimeErrorOverlay(),
@@ -37,7 +39,9 @@ export default defineConfig({
   },
   root: path.resolve(import.meta.dirname, "client"),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    // Note: GitHub Pages usually expects 'dist' at the root. 
+    // If you use a custom GitHub Action, 'dist/public' is fine.
+    outDir: path.resolve(import.meta.dirname, "dist"), 
     emptyOutDir: true,
   },
   server: {
