@@ -38,10 +38,8 @@ export default defineConfig({
     },
   },
   root: path.resolve(import.meta.dirname, "client"),
-  build: {
-    // Note: GitHub Pages usually expects 'dist' at the root. 
-    // If you use a custom GitHub Action, 'dist/public' is fine.
-    outDir: path.resolve(import.meta.dirname, "dist"), 
+build: {
+    outDir: "dist", 
     emptyOutDir: true,
   },
   server: {
